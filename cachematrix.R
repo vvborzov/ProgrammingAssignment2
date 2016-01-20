@@ -1,9 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Functions in this file provide caching functionality for inverting square 
+## matrices. At first special object should be created by makeCacheMatrix 
+## function. Thereafter cached version of solve() function may be used on 
+## this object
 
 ## makeCacheMatrix
-## creates a special object, which contains square matrix and cached version of matrix inversion
-## to guarantee provide data integrity, access to returned bject data 
+## Description: creates a special object, which contains square matrix and 
+## cached version of matrix inversion
+## to provide data integrity, access to underlying data of the returned object
+## may be granted only via returned object interface
 
 makeCacheMatrix <- function(x = matrix()) {
     invx <- NULL
@@ -24,8 +28,8 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## cacheSolve
-## Description: returns inversion of matrix which is contained in object x, which should be created
-## by function makeCacheMatrix
+## Description: returns inversion of matrix which is contained in object x,
+## which should be created by function makeCacheMatrix
 
 cacheSolve <- function(x, ...) {
         invx <- x$get.inv()
